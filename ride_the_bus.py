@@ -1,13 +1,12 @@
 import random
 
-
-guess = " "
-points = 0
-wins = 0
-losses = 0
-gamesPlayed = 0
-winPercentage = 0
-for j in range(0,10):
+def ride_the_bus():
+    guess = " "
+    points = 0
+    wins = 0
+    losses = 0
+    gamesPlayed = 0
+    winPercentage = 0
     while(gamesPlayed != 10000):
         arr = []
         for x in range(1,53):
@@ -18,7 +17,6 @@ for j in range(0,10):
         pyramid = arr[42:]
         points = 0
         gamesPlayed +=1
-
         for x in range(0, 42):
             if(pyramid[points] < 7):
                 guess = "HIGHER"
@@ -40,7 +38,6 @@ for j in range(0,10):
                 wins+=1
                 break
             deck.pop(0)
-    winPercentage+=((wins/gamesPlayed)*100)
-    print((wins/gamesPlayed)*100)
+    winPercentage=(wins/gamesPlayed)*100
 
-print("Games Played:", 100000, "Win Percentage:", winPercentage/10, "%")
+    print("Games Played:", gamesPlayed, "Win Percentage:", winPercentage, "%")
