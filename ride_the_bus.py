@@ -1,13 +1,23 @@
 import random
 
 def ride_the_bus(gamesToPlay, numberOfCardsInPyramid):
+    try:
+        assert(gamesToPlay>0 and gamesToPlay<=1000000), "Invalid number of games"
+    except Exception as e:
+        print(e)
+        exit()
+    try:
+        assert(numberOfCardsInPyramid > 0 and numberOfCardsInPyramid <= 26), "Invalid number of cards in Pyramid, must be at size(deck)/2"
+    except Exception as e:
+        print(e)
+        exit()
 
     wins = 0
     gamesPlayed = 0
     winPercentage = 0
 
     while(gamesPlayed != gamesToPlay):
-
+        
         pyramidCards = numberOfCardsInPyramid
         guess = " "
         points = 0
