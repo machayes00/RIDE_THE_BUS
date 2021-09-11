@@ -1,21 +1,22 @@
 import random
 
-def ride_the_bus():
+def ride_the_bus(gamesToPlay, numberOfCardsInPyramid):
     guess = " "
     points = 0
     wins = 0
     losses = 0
     gamesPlayed = 0
+    points = 0
     winPercentage = 0
-    while(gamesPlayed != 10000):
+    pyramidCards = numberOfCardsInPyramid
+    while(gamesPlayed != gamesToPlay):
         arr = []
         for x in range(1,53):
             arr.append(x)
 
         random.shuffle(arr)
-        deck = arr[:42]
-        pyramid = arr[42:]
-        points = 0
+        deck = arr[numberOfCardsInPyramid:]
+        pyramid = arr[:numberofCardsInPyramid]
         gamesPlayed +=1
         for x in range(0, 42):
             if(pyramid[points] < 7):
@@ -34,10 +35,13 @@ def ride_the_bus():
             else:
                 pyramid[points] = deck[0]
                 points = 0 
-            if(points == 10):
+            if(points == numberOfCardsInPyramid):
                 wins+=1
                 break
             deck.pop(0)
     winPercentage=(wins/gamesPlayed)*100
 
     print("Games Played:", gamesPlayed, "Win Percentage:", winPercentage, "%")
+
+ride_the_bus(10000, 10)
+
