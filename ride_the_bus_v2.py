@@ -1,22 +1,6 @@
 import random
 
 def ride_the_bus(gamesToPlay, numberOfCardsInPyramid):
-    try:
-        assert(gamesToPlay>0 and gamesToPlay<=1000000), "Invalid number of games"
-    except TypeError:
-        print("Invalid type")
-        exit()
-    except Exception as e:
-        print(e)
-        exit()
-    try:
-        assert(numberOfCardsInPyramid > 0 and numberOfCardsInPyramid <= 26), "Invalid number of cards in Pyramid, must be at size(deck)/2"
-    except TypeError:
-        print("Invalid Type")
-        exit()
-    except Exception as e:
-        print(e)
-        exit()
 
     wins = 0
     gamesPlayed = 0
@@ -61,7 +45,31 @@ def ride_the_bus(gamesToPlay, numberOfCardsInPyramid):
 
     print("Games Played:", gamesPlayed, "Win Percentage:", winPercentage, "%")
 
-ride_the_bus(1000, 'a')
+def playGame():
+    try:
+        games = int(input("Enter how many games the computer should play: "))
+        assert(games>0 and games<=1000000), "Invalid number of games"
+    except Exception as e:
+        print(e)
+        exit()   
+    except TypeError:
+        print("Invalid type")
+        exit()
+    try:
+        pyramid = int(input("Enter how many cards to be in the pyramid: "))
+        assert(pyramid > 0 and pyramid <= 26), "Invalid number of cards in Pyramid, must be at size(deck)/2"
+    except Exception as e:
+        print(e)
+        exit()
+    except TypeError:
+        print("Invalid Type")
+        exit()
+    
+    ride_the_bus(games, pyramid)
+
+playGame()
+
+
 
 
 
